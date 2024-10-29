@@ -25,6 +25,24 @@ body {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+  width: 180px;
+  height: 80px;
+  border: 5px solid transparent;
+  transition: .3s ease;
+}
+
+.btn:hover {
+  border-color: #1f2e65;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
