@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import PokemonCard from "./components/PokemonCard";
+import NavBar from "./components/NavBar";
 
 const pokemonList = [
 	{
@@ -31,24 +32,49 @@ const pokemonList = [
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
 
+	function handleClickPrev() {
+		if (pokemonIndex > 0) {
+			setPokemonIndex(pokemonIndex - 1);
+		}
+	}
+
+	function handleClickNext() {
+		if (pokemonIndex < pokemonList.length - 1) {
+			setPokemonIndex(pokemonIndex + 1);
+		}
+	}
+
 	return (
 		<>
-			<nav>
-				{pokemonList.map((poke) => {
-					return (
+			<section className="container">
+				<NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
+
+				<section className="card">
+					{<PokemonCard pokemon={pokemonList[pokemonIndex]} />}
+					<div className="btn-container">
 						<button
-							key={poke.name}
+							className="btn"
+							style={{ display: pokemonIndex > 0 ? "block" : "none" }}
 							type="button"
-							onClick={() => {
-								setPokemonIndex(pokemonList.indexOf(poke));
-							}}
+							onClick={handleClickPrev}
 						>
-							{poke.name}
+							Précédent
 						</button>
-					);
-				})}
-			</nav>
-			<section>{<PokemonCard pokemon={pokemonList[pokemonIndex]} />}</section>
+
+						<button
+							className="btn"
+							style={{
+								display:
+									pokemonIndex < pokemonList.length - 1 ? "block" : "none",
+							}}
+							type="button"
+							onClick={handleClickNext}
+						>
+							Suivant
+						</button>
+					</div>
+				</section>
+			</section>
 		</>
 	);
 }
