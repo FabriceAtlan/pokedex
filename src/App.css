@@ -28,6 +28,7 @@ body {
 .btn-container {
   display: flex;
   justify-content: center;
+  margin: 7rem 0 0;
   gap: 1rem;
 }
 
@@ -43,25 +44,17 @@ body {
   border-color: #1f2e65;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.container {
+  width: 100%;
+  height: 100%;
 }
 
 .card {
-  padding: 2em;
+  width: 100%;
+  height: 80%;
 }
 
-.read-the-docs {
-  color: #888;
+p {
+  margin: 0;
+  padding: 0;
 }

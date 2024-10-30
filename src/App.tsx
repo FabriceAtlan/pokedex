@@ -32,10 +32,49 @@ const pokemonList = [
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
 
+	function handleClickPrev() {
+		if (pokemonIndex > 0) {
+			setPokemonIndex(pokemonIndex - 1);
+		}
+	}
+
+	function handleClickNext() {
+		if (pokemonIndex < pokemonList.length - 1) {
+			setPokemonIndex(pokemonIndex + 1);
+		}
+	}
+
 	return (
 		<>
-			<NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
-			<section>{<PokemonCard pokemon={pokemonList[pokemonIndex]} />}</section>
+			<section className="container">
+				<NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
+
+				<section className="card">
+					{<PokemonCard pokemon={pokemonList[pokemonIndex]} />}
+					<div className="btn-container">
+						<button
+							className="btn"
+							style={{ display: pokemonIndex > 0 ? "block" : "none" }}
+							type="button"
+							onClick={handleClickPrev}
+						>
+							Précédent
+						</button>
+
+						<button
+							className="btn"
+							style={{
+								display:
+									pokemonIndex < pokemonList.length - 1 ? "block" : "none",
+							}}
+							type="button"
+							onClick={handleClickNext}
+						>
+							Suivant
+						</button>
+					</div>
+				</section>
+			</section>
 		</>
 	);
 }
