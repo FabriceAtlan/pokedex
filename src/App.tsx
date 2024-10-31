@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import "./App.css";
+
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
 
@@ -31,6 +33,10 @@ const pokemonList = [
 
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
+
+	const start = useEffect(() => {
+		alert("hello pokemon trainer :)");
+	}, []);
 
 	function handleClickPrev() {
 		if (pokemonIndex > 0) {
