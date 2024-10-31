@@ -7,7 +7,13 @@ interface PropsP {
 	pokemon: PokemonProps;
 }
 
+function isPikachu(pPokemon: string) {
+	alert(pPokemon);
+}
+
 function PokemonCard(propsPokemon: PropsP) {
+	propsPokemon.pokemon.name === "pikachu" && alert("pika pikachu !!!");
+
 	return (
 		<figure>
 			{propsPokemon.pokemon.imgSrc ? (
@@ -18,7 +24,6 @@ function PokemonCard(propsPokemon: PropsP) {
 			) : (
 				<p>???</p>
 			)}
-
 			<figcaption>{propsPokemon.pokemon.name}</figcaption>
 		</figure>
 	);
